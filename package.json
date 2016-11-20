@@ -1,0 +1,21 @@
+{
+  "name": "gaia_toolstesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "three": "^0.82.1",
+    "three-orbit-controls": "^72.0.0",
+    "webpack": "^1.13.3"
+  },
+  "devDependencies": {
+    "exports-loader": "^0.6.3",
+    "imports-loader": "^0.6.5"
+  }
+}

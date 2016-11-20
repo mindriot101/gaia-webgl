@@ -1,0 +1,6 @@
+TgasSource*_cartesian.fits
+gaia_data
+node_modules
+static/*
+!static/.gitkeep
+venv
