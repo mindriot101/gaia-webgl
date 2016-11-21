@@ -12,9 +12,9 @@ def convert_to_cartesian(ra, dec, dist_parsec):
     theta = np.radians(ra)
     phi = np.radians(dec)
 
-    x = r * np.cos(theta) * np.sin(phi)
-    y = r * np.sin(theta) * np.sin(phi)
-    z = r * np.cos(phi)
+    x = r * np.cos(theta) * np.cos(phi)
+    y = r * np.sin(theta) * np.cos(phi)
+    z = r * np.sin(phi)
     return x, y, z
 
 
