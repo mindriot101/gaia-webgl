@@ -1,6 +1,7 @@
 var THREE = require('three');
 var $ = require('jquery');
 var OrbitControls = require('three-orbit-controls')(THREE);
+var Stats = require('stats.js');
 
 var camera, scene, renderer, controls;
 var canvas = document.getElementById("plotcanvas");
@@ -8,11 +9,15 @@ var canvas = document.getElementById("plotcanvas");
 var WIDTH = canvas.clientWidth,
     HEIGHT = canvas.clientHeight;
 
+var stats = new Stats();
+
 init();
 animate();
 
 
 function init() {
+    stats.showPanel(0);
+    document.body.appendChild(stats.dom);
     scene = new THREE.Scene();
 
     renderer = new THREE.WebGLRenderer({
@@ -53,9 +58,11 @@ function init() {
 }
 
 function animate() {
-    requestAnimationFrame(animate);
+    stats.begin();
     renderer.render(scene, camera);
     controls.update();
+    stats.end();
+    requestAnimationFrame(animate);
 }
 
 function buildCamera() {
