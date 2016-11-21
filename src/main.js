@@ -25,20 +25,22 @@ function init() {
     scene.add(camera);
 
     for (var i=0; i<16; i++) {
-        console.log('Fetched dataset ' + i);
-        $.getJSON("/data/" + i, function(data) {
-            var geometry = new THREE.Geometry();
-            for (var j=0; j<data.x.length; j++) {
-                geometry.vertices.push(
-                    new THREE.Vector3(data.x[j], data.y[j], data.z[j])
-                );
-            }
-            var material = new THREE.MeshBasicMaterial({
-                color: 0xffffff,
-            });
-            var points = new THREE.Points(geometry, material);
-            scene.add(points);
-        });
+        (function(i) {
+            $.getJSON("/data/" + i, function(data) {
+                console.log("Fetched dataset " + i);
+                var geometry = new THREE.Geometry();
+                for (var j=0; j<data.x.length; j++) {
+                    geometry.vertices.push(
+                        new THREE.Vector3(data.x[j], data.y[j], data.z[j])
+                    );
+                }
+                var material = new THREE.MeshBasicMaterial({
+                    color: 0xffffff,
+                });
+                var points = new THREE.Points(geometry, material);
+                scene.add(points);
+            })
+        })(i);
     }
 
     renderer.setClearColor(0x0a0a0a);
